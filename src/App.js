@@ -6,6 +6,7 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
+import SortButton from './components/SortButton';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -39,6 +40,17 @@ const App = () => {
 	useEffect(() => {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
+
+	const [sortedMovies, setSortedMovies] = useState([]);
+
+	useEffect(() => {
+		setMovies(sortedMovies);
+	}, [sortedMovies]);
+
+	const sortMovies = (movies) => {
+		setSortedMovies(movies.sort((a, b) => a.Title > b.Title))
+	};
+
 
 	// Whenever page is rerendered, sets the movie favourites if the local storage contains any favourited movies
 	useEffect(() => {
@@ -83,12 +95,16 @@ const App = () => {
 		saveToLocalStorage('react-movie-app-favourites', newFavouriteList);
 	};
 
+
+
+
 	return (
 		<div className='container-fluid movie-app'>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} handleSearchClick/>
 			</div>
+			<SortButton movies={movies} handleSortClick={sortMovies}/>
 			<div className='row'>
 				<MovieList
 					movies={movies}
