@@ -31,6 +31,10 @@ const App = () => {
     	});
 	};
 
+	useEffect(() => {
+		getMovieRequest("Star Wars");
+	  }, []);
+
 	// Gets the requested movie whenever searchValue changes
 	useEffect(() => {
 		getMovieRequest(searchValue);
@@ -83,7 +87,7 @@ const App = () => {
 		<div className='container-fluid movie-app'>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
-				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} handleSearchClick/>
 			</div>
 			<div className='row'>
 				<MovieList

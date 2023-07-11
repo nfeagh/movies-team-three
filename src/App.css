@@ -1,5 +1,5 @@
 body {
-	background: #141414;
+	background: #76242d;
 	color: #ffffff;
 }
 
@@ -15,7 +15,7 @@ body {
 
 .image-container:hover {
 	cursor: pointer;
-	transform: scale(1.1);
+	transform: scale(1.12);
 }
 
 .image-container:hover .overlay {
