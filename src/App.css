@@ -1,5 +1,5 @@
 body {
-	background: #76242d;
+	background: #76242D;
 	color: #ffffff;
 }
 
@@ -32,4 +32,9 @@ body {
 	font-size: 20px;
 	padding: 20px;
 	text-align: center;
+}
+
+.sort-button {
+	padding-left: 10px;
+	padding-right: 10px;
 }
