@@ -37,9 +37,9 @@ const App = () => {
 	  }, []);
 
 	// Gets the requested movie whenever searchValue changes
-	useEffect(() => {
-		getMovieRequest(searchValue);
-	}, [searchValue]);
+	//useEffect(() => {
+	//	getMovieRequest(searchValue);
+	//}, [searchValue]);
 
 	const [sortedMovies, setSortedMovies] = useState([]);
 
@@ -95,6 +95,8 @@ const App = () => {
 		saveToLocalStorage('react-movie-app-favourites', newFavouriteList);
 	};
 
+	
+
 
 
 
@@ -102,7 +104,7 @@ const App = () => {
 		<div className='container-fluid movie-app'>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
-				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} handleSearchClick/>
+				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} handleSearchClick={getMovieRequest}/>
 			</div>
 			<SortButton movies={movies} handleSortClick={sortMovies}/>
 			<div className='row'>
